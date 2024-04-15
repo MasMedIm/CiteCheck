@@ -21,8 +21,7 @@ chrome.commands.onCommand.addListener((command) => {
   }
 
 function sendToAPI(text) {
-    console.log('supposed to be the text')
-    console.log(text)
+
     fetch('http://127.0.0.1:8000/process-string?input_string='+text, {
       method: 'POST',
       headers: {
@@ -33,6 +32,9 @@ function sendToAPI(text) {
     .then(response => response.json())
         .then(data => {
             console.log(data)
+
+            chrome.tabs.create({url: data});
+
     })
     .catch(error => console.error('Error:', error));
   }
