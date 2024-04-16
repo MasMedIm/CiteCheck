@@ -22,7 +22,7 @@ chrome.commands.onCommand.addListener((command) => {
 
 function sendToAPI(text) {
 
-    fetch('http://127.0.0.1:8000/process-string?input_string='+text, {
+    fetch('https://citecheck.nouspo.com/process-string?input_string='+text, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
